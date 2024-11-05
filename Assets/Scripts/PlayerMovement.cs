@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,16 +9,21 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
 
     private float HorizontalMove;
+    private float VerticalMove;
+    private Vector2 MoveVector;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        HorizontalMove = Input.GetAxisRaw("Horizontal");
+        VerticalMove = Input.GetAxisRaw("Vertical");
+
+        MoveVector = new Vector2(HorizontalMove, VerticalMove);
+
+        Rigidbody2D.AddForce(MoveVector * Speed);
     }
 }
