@@ -7,8 +7,8 @@ public class ForegroundDepthController : MonoBehaviour
     public GameObject Player;
     public float AboveValueSetThisInfront;
 
-    private float ZInfront = -1;
-    private float Zbehind = 1;
+    public float ZInfront = -1;
+    public float Zbehind = 1;
 
     // Update is called once per frame
     void Update()
